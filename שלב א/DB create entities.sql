@@ -1,7 +1,7 @@
 CREATE TABLE Team
 (
   Te_ID INT NOT NULL,
-  Te_Name INT NOT NULL,
+  Te_Name varchar(20) NOT NULL,
   Team_Leader_ID INT NOT NULL,
   PRIMARY KEY (Te_ID)
 );
@@ -9,15 +9,15 @@ CREATE TABLE Team
 CREATE TABLE Rol
 (
   R_ID INT NOT NULL,
-  R_Name INT NOT NULL,
+  R_Name VARCHAR(20) NOT NULL,
   PRIMARY KEY (R_ID)
 );
 
 CREATE TABLE Projects
 (
   Pro_ID INT NOT NULL,
-  Pro_Name INT NOT NULL,
-  Due_Date INT NOT NULL,
+  Pro_Name VARCHAR(20) NOT NULL,
+  Due_Date DATE NOT NULL,
   Cost INT NOT NULL,
   Profit INT NOT NULL,
   Te_ID INT NOT NULL,
@@ -29,14 +29,14 @@ CREATE TABLE Evaluation
 (
   Ev_ID INT NOT NULL,
   Grade INT NOT NULL,
-  Year INT NOT NULL,
+  Evaluation_Year INT NOT NULL,
   PRIMARY KEY (Ev_ID)
 );
 
 CREATE TABLE Task
 (
   Ta_ID INT NOT NULL,
-  Ta_Name INT NOT NULL,
+  Ta_Name VARCHAR(20) NOT NULL,
   Pro_ID INT NOT NULL,
   PRIMARY KEY (Ta_ID, Pro_ID),
   FOREIGN KEY (Pro_ID) REFERENCES Projects(Pro_ID)
@@ -45,28 +45,28 @@ CREATE TABLE Task
 CREATE TABLE Computer
 (
   C_ID INT NOT NULL,
-  Processor INT NOT NULL,
+  Processor VARCHAR(20) NOT NULL,
   RAM INT NOT NULL,
   SSD INT NOT NULL,
-  Year_Of_Purchase INT NOT NULL,
+  Year_Of_Purchase DATE NOT NULL,
   PRIMARY KEY (C_ID)
 );
 
 CREATE TABLE Printer
 (
   Pri_ID INT NOT NULL,
-  Compeny INT NOT NULL,
-  Model INT NOT NULL,
+  Compeny VARCHAR(20) NOT NULL,
+  Printer_Model VARCHAR(20) NOT NULL,
   PRIMARY KEY (Pri_ID)
 );
 
 CREATE TABLE Supplier
 (
   Su_ID INT NOT NULL,
-  Su_Name INT NOT NULL,
-  Addres INT NOT NULL,
+  Su_Name VARCHAR(20) NOT NULL,
+  Addres VARCHAR(40) NOT NULL,
   Su_Phone INT NOT NULL,
-  Su_Email INT NOT NULL,
+  Su_Email VARCHAR(20) NOT NULL,
   PRIMARY KEY (Su_ID)
 );
 
@@ -82,8 +82,8 @@ CREATE TABLE Connected_To
 CREATE TABLE Employee
 (
   Em_ID INT NOT NULL,
-  Em_Name INT NOT NULL,
-  Date_Of_Birth INT NOT NULL,
+  Em_Name VARCHAR(20) NOT NULL,
+  Date_Of_Birth DATE NOT NULL,
   R_ID INT NOT NULL,
   Te_ID INT NOT NULL,
   C_ID INT NOT NULL,
@@ -96,8 +96,8 @@ CREATE TABLE Employee
 CREATE TABLE Software
 (
   So_Id INT NOT NULL,
-  So_Name INT NOT NULL,
-  Version INT NOT NULL,
+  So_Name VARCHAR(20) NOT NULL,
+  Software_Version VARCHAR(20) NOT NULL,
   Su_ID INT NOT NULL,
   PRIMARY KEY (So_Id),
   FOREIGN KEY (Su_ID) REFERENCES Supplier(Su_ID)
